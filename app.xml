@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app_xml>
+	
+	<category>
+		<id>1</id>
+		<name><![CDATA[3D]]></name>
+		<order></order>
+		<pid>0</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>2</id>
+		<name><![CDATA[綜藝]]></name>
+		<order></order>
+		<pid>0</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>3</id>
+		<name><![CDATA[影劇]]></name>
+		<order></order>
+		<pid>0</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>4</id>
+		<name><![CDATA[美食]]></name>
+		<order></order>
+		<pid>0</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>5</id>
+		<name><![CDATA[購物]]></name>
+		<order></order>
+		<pid>0</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>6</id>
+		<name><![CDATA[體育]]></name>
+		<order></order>
+		<pid>0</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>7</id>
+		<name><![CDATA[台灣呷透透]]></name>
+		<order></order>
+		<pid>1</pid>
+		<push>1</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>8</id>
+		<name><![CDATA[美麗不妥協]]></name>
+		<order></order>
+		<pid>2</pid>
+		<push>1</push>
+		<img><![CDATA[Beauty.jpg]]></img>
+	</category>
+	
+	<category>
+		<id>9</id>
+		<name><![CDATA[小Tips專區]]></name>
+		<order></order>
+		<pid>2</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>10</id>
+		<name><![CDATA[健康小Tips]]></name>
+		<order></order>
+		<pid>9</pid>
+		<push>1</push>
+		<img><![CDATA[TIPS.jpg]]></img>
+	</category>
+	
+	<category>
+		<id>11</id>
+		<name><![CDATA[流行小Tips]]></name>
+		<order></order>
+		<pid>9</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>12</id>
+		<name><![CDATA[美麗小Tips]]></name>
+		<order></order>
+		<pid>9</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>13</id>
+		<name><![CDATA[旅遊生活]]></name>
+		<order></order>
+		<pid>2</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>14</id>
+		<name><![CDATA[口碑強檔]]></name>
+		<order></order>
+		<pid>3</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>15</id>
+		<name><![CDATA[火熱韓劇]]></name>
+		<order></order>
+		<pid>3</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>16</id>
+		<name><![CDATA[人氣推薦]]></name>
+		<order></order>
+		<pid>4</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>17</id>
+		<name><![CDATA[台灣呷透透]]></name>
+		<order></order>
+		<pid>4</pid>
+		<push>1</push>
+		<img><![CDATA[Taiwan_Eat.jpg]]></img>
+	</category>
+	
+	<category>
+		<id>18</id>
+		<name><![CDATA[988購物]]></name>
+		<order></order>
+		<pid>5</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>19</id>
+		<name><![CDATA[莎的手作坊]]></name>
+		<order></order>
+		<pid>5</pid>
+		<push>0</push>
+		<img></img>
+	</category>
+	
+	<category>
+		<id>20</id>
+		<name><![CDATA[運動PLAY吧]]></name>
+		<order></order>
+		<pid>6</pid>
+		<push>1</push>
+		<img><![CDATA[SPORT_PLAY_BAR.jpg]]></img>
+	</category>
+	
+	<category>
+		<id>21</id>
+		<name><![CDATA[體壇最前線]]></name>
+		<order></order>
+		<pid>6</pid>
+		<push>1</push>
+		<img><![CDATA[Sport_News.jpg]]></img>
+	</category>
+	
+	
+	
+		
+	
+	
+</app_xml>

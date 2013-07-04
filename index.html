@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>XML & json read example</title>
+<script type="text/javascript" src="json2.js"></script>
+</head>
+
+<body>
+<p id="text"></p>
+<script>
+
+
+function readXmlFile(xmlFile) {
+  var xmlhttp;
+  var xmlDoc;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+ 	 	xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+  if (xmlhttp) {
+    xmlhttp.onreadystatechange = function(){
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			xmlDoc=xmlhttp.responseXML;	
+		}
+	}
+    xmlhttp.open("GET", xmlFile+ '?time=' + new Date().getTime(), false);
+    xmlhttp.send(null);
+	return xmlDoc;
+  }
+}
+
+function parseMenu(xmlDoc) {
+	var length = xmlDoc.getElementsByTagName("category").length;//取得資料總數
+	var array = new Array();
+	for(var i=0,j=0;i<length;i++){
+		
+		//IE取得xml的值是用text，其他瀏覽器是用textContent
+		if (window.ActiveXObject)
+		{// code for IE
+			if(xmlDoc.getElementsByTagName("pid")[i].text==0){
+				array[j] = new Array();
+				array[j][0] = xmlDoc.getElementsByTagName("id")[i].text;
+				array[j][1] = xmlDoc.getElementsByTagName("name")[i].text;
+				array[j][2] = xmlDoc.getElementsByTagName("pid")[i].text;
+				j++;
+			}
+			
+		}
+		else
+		{// code for Firefox, Chrome, Opera, Safari
+			if(xmlDoc.getElementsByTagName("pid")[i].textContent==0){
+				array[j] = new Array();
+				array[j][0] = xmlDoc.getElementsByTagName("id")[i].textContent;
+				array[j][1] = xmlDoc.getElementsByTagName("name")[i].textContent;
+				array[j][2] = xmlDoc.getElementsByTagName("pid")[i].textContent;
+				j++;
+			}
+		}
+	}
+	return array;
+}
+
+function parsePush(xmlDoc) {
+	var length = xmlDoc.getElementsByTagName("category").length;//取得資料總數
+	var array = new Array();
+	for(var i=0,j=0;i<length;i++){
+		
+		//IE取得xml的值是用text，其他瀏覽器是用textContent
+		if (window.ActiveXObject)
+		{// code for IE
+			if(xmlDoc.getElementsByTagName("push")[i].text==1){
+				array[j] = new Array();
+				array[j][0] = xmlDoc.getElementsByTagName("id")[i].text;
+				array[j][1] = xmlDoc.getElementsByTagName("name")[i].text;
+				array[j][2] = xmlDoc.getElementsByTagName("pid")[i].text;
+				array[j][3] = xmlDoc.getElementsByTagName("push")[i].text;
+				array[j][4] = xmlDoc.getElementsByTagName("img")[i].text;
+				j++;
+			}
+			
+		}
+		else
+		{// code for Firefox, Chrome, Opera, Safari
+			if(xmlDoc.getElementsByTagName("push")[i].textContent==1){
+				array[j] = new Array();
+				array[j][0] = xmlDoc.getElementsByTagName("id")[i].textContent;
+				array[j][1] = xmlDoc.getElementsByTagName("name")[i].textContent;
+				array[j][2] = xmlDoc.getElementsByTagName("pid")[i].textContent;
+				array[j][3] = xmlDoc.getElementsByTagName("push")[i].textContent;
+				array[j][4] = xmlDoc.getElementsByTagName("img")[i].textContent;
+				j++;
+			}
+			
+		}
+	}
+	return array;
+}
+
+function parseCat(xmlDoc) {
+	var length = xmlDoc.getElementsByTagName("category").length;//取得資料總數
+	var array = new Array();
+	for(var i=0;i<length;i++){
+		array[i] = new Array();
+		
+		//IE取得xml的值是用text，其他瀏覽器是用textContent
+		if (window.ActiveXObject)
+		{// code for IE
+			array[i][0] = xmlDoc.getElementsByTagName("id")[i].text;
+			array[i][1] = xmlDoc.getElementsByTagName("name")[i].text;
+			array[i][2] = xmlDoc.getElementsByTagName("pid")[i].text;
+		}
+		else
+		{// code for Firefox, Chrome, Opera, Safari
+			array[i][0] = xmlDoc.getElementsByTagName("id")[i].textContent;
+			array[i][1] = xmlDoc.getElementsByTagName("name")[i].textContent;
+			array[i][2] = xmlDoc.getElementsByTagName("pid")[i].textContent;
+		}
+	}
+	return array;
+}
+
+function getSubCat(array,pid) {
+	var length = array.length;//取得資料總數
+	var subCat = new Array();
+	for(var i=0;i<length;i++){
+		if(array[i][2]==pid){
+			var temp = new Array();
+			temp[0]= array[i][0];
+			temp[1]= array[i][1];
+			temp[2]= array[i][2];
+			subCat.push(temp);
+		}
+	}
+	return subCat;
+}
+var cat_array=parseCat(readXmlFile("app.xml"));
+var tree="";
+
+var node_array=getSubCat(cat_array,0);
+/*for(var j=0;j<node_array.length;j++){
+	var a=getSubCat(cat_array,0);
+	if(getSubCat(cat_array,a[0][2])==""){
+		alert(a[0][1]);
+	}else{
+		
+	}
+}*/
+
+//if(a!="")	alert("111");
+
+function getTree(array,spase) {
+	for(var j=0;j<array.length;j++){
+		
+		
+		if(getSubCat(cat_array,array[j][0])==""){
+			tree+=spase+array[j][1]+"<br>";
+			//alert(array[j][1]);
+		}else{
+			tree+=spase+array[j][1]+"<br>";
+			//alert(array[j][1]);
+			getTree(getSubCat(cat_array,array[j][0]),spase+"____");
+		}
+	}
+}
+getTree(node_array,"");
+document.getElementById('text').innerHTML=tree;
+</script>
+
+</body>
+</html>
